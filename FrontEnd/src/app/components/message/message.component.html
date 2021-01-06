@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="card">
+                <div class="valign-wrapper" style="background : #46b5f6 !important">
+                
+      <div class="col s12 imgCol"><img class="circle" src="https://via.placeholder.com/50x50" alt=""> </div>
+    <div class="row">
+        <div class="col s10 nameCol"><h4><span>{{receiver}}</span></h4>
+        <p class="isOnline">Online</p>
+        </div>
+    </div>
+    
+    </div>
+        </div>
+    </div>
+
+    <div class="col s12 rowDiv" ngx-auto-scroll  observe-attributes>
+        <div class="row">
+            <div class="col s12">
+
+                <div class="message-wrapper" *ngFor="let message of messagesArray">
+                    <div class="left" *ngIf="user.username !== receiver && user.username !== message.sendername ">
+                        <div class="chat-bubble left slide-left">
+                            <div class="message">{{message.body}}</div>
+                        </div>
+                </div>
+
+                    <div class="right" *ngIf="user.username === message.sendername">
+
+                        <div class="chat-bubble right slide-right">
+
+                            <div class="message">{{message.body}}</div>
+                        </div>
+
+                    </div>
+
+                    <div class="cf"></div>
+                </div>
+
+
+                <div class="right" *ngIf="typing">
+
+                    <div class="chat-bubble right slide-right">
+
+                        <div class="message">
+                            {{receiver}} is typing ...
+
+                        </div>
+                    </div>
+
+                </div>
+
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="col s12" style="margin: 0px">
+    <div class="row">
+        <div class="card" style="height: 55px;">
+        
+        <div class="inputRow">
+            <form (ngSubmit)="SendMessage()" >
+                <div class="input-field inputField col s10">
+
+                    <textarea (keypress)="IsTyping()"  [(ngModel)]="message" name="message" class="materialize-textarea inputBox"></textarea>
+                </div>
+                <div class="input-field col s1 emojiDiv">
+                    <button class="emojiBtn">Emoji</button>
+
+                </div>
+                <div class="input-field col s1 ">
+                    <button class="suffix btn" type="submit">Send</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+        
+    </div>
+    
+    </div>
+</div>

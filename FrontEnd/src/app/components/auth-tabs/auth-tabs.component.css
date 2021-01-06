@@ -1,0 +1,21 @@
+#singupbtn{ 
+    float: left;
+    opacity: 200;
+}
+.bodyDiv{ 
+    height:100vh ;
+}
+div.bodyContainer { 
+    max-top: bold ;
+}
+.tabs a {
+    color: #46b5f6;
+    font-weight: bold;
+    font-size: 18px;
+}
+.tabs .active{ 
+    background :inherit !important; 
+}
+.auth-content {
+    height: 515px !important;
+}

@@ -1,0 +1,88 @@
+<nav class="nav-extended" id="navBar">
+  <div class="container">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="dropdown-button dropdown-trigger" data-target="dropdown">
+          <i class="fa fa-globe fa-1x badge"></i>
+          <span class="nav-label-icon" *ngIf="count?.length > 0">{{
+            count?.length
+          }}</span>
+  
+          <ul id="dropdown" class="dropdown-content col s12 collection">
+            <li
+              class="collection-item avatar"
+              *ngFor="let item of notifications"
+            >
+              <img src="https://via.placeholder.com/50x50" class="circle" />
+              <span [ngClass]="item.read ? 'isRead' : 'unread'">{{
+                item.message
+              }}</span>
+              <p class="time">{{ TimeFromNow(item.created) }}</p>
+            </li>
+
+            <span class="text" *ngIf="notifications.length <= 0"
+              >No Notifications</span
+            >
+            <p class="secondary-content">
+              <a class="markAll btn" (click)="MarkAll()"> Mark All as Read</a>
+            </p>
+          </ul>
+        </li>
+
+        <li>&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</li>
+        <li class="dropdown-button dropdown-trigger1" data-target="dropdown1">
+          <i class="fa fa-bell fa-1x badge"></i>
+          <span class="nav-label-icon" *ngIf="count?.length > 0">{{
+            count?.length
+          }}</span>
+
+          <ul id="dropdown1" class="dropdown-content col s12 collection">
+<!--             
+            <li
+              id="menues"
+              class="collection-item avatar"
+              *ngFor="let chat of chatlist"
+              [routerLink]="['/chat', chat.receiverId.username]"
+            >
+              <img src="https://via.placeholder.com/50x50" class="circle" />
+              <span class="title">
+                {{ chat.receiverId.username }}
+                <a class="secondary-content">
+                  {{
+                     MessageDate(
+                      chat.msgId.message[chat.msgId.message.length - 1]
+                        .createdAt
+                    ) 
+                  }}
+                </a>
+              </span>
+              <p>
+                {{ chat.msgId.message[chat.msgId.message.length - 1].body }}
+              </p>
+            </li> -->
+          </ul>
+        </li>
+
+        <li>&nbsp;&nbsp; &nbsp;&nbsp;</li>
+
+        <li><a (click)="logout()"> Logout</a></li>
+      </ul>
+    </div>
+
+    <div id="center" class="nav-content">
+      <div class="nav-div">
+        <img
+          src=""
+          alt=""
+          width="80px"
+          class="circle responsive-img"
+          src="https://res.cloudinary.com/dxi9g49hn/image/upload/v{{
+            imgVersion
+          }}/{{ imgId }}"
+        />
+      </div>
+      <h4 class="profile-name">{{ user.username }}</h4>
+      <p class="user-text">Just be sure</p>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+      <div class="col s12">
+        <div class="card">
+          <div class="card-image">
+          </div>
+          <div class="card-content">
+            <div class="progress" *ngIf="showSpinner">
+              <div class="indeterminate"></div>
+          </div>
+
+              <div class="card-content black-text">
+                  <span class="card-title">Login</span>
+                  <span style="color: red; font-size: large;" *ngIf="errorMessage"> {{errorMessage}} </span>
+                </div>
+    <div class="row">
+      <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="col s12">
+  
+  
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="text" formControlName="username" class="validate">
+            <label for="password">Username</label>
+          </div>
+          <span class="danger" *ngIf="!loginForm.controls['username'].valid && loginForm.controls['password'].touched">
+            The username is required
+          </span>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="email" type="password" formControlName="password" class="validate">
+            <label for="email">Password</label>
+          </div>
+          <span class="danger" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">
+            The password is required
+          </span>
+        </div>
+   
+ 
+      <button id="loginbtn" class="btn waves-effect " type="submit" name="action" [disabled]="!loginForm.valid">Submit
+    </button>
+  </form>
+    </div>
+
+          
+          </div>
+     
+        </div>
+      </div>
+    </div>
+  </div>
